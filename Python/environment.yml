@@ -1,0 +1,6 @@
+name: salesforce
+dependencies:
+  - numpy
+  - pandas
+  - simple-salesforce
+  - notebook
