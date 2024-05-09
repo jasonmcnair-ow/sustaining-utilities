@@ -71,7 +71,7 @@ def preprocess_data():
 
     aggregation = pd.concat([df.groupby(['date', 'project', 'subproject'])['subject'].apply(';'.join), df.groupby(['date', 'project', 'subproject']).sum()], axis=1).reset_index()
 
-    aggregation['comb-project-subproject'] = aggregation['project'] + ':' + aggregation['subproject']
+    aggregation['comb-project-subproject'] = aggregation['project'] + ':' + aggregation['subproject'] + ':::' + aggregation['subject']
 
     print(aggregation)
 
@@ -103,7 +103,7 @@ def preprocess_data():
     both = pd.concat([rcgna_join, other_aggregation])
 
     both = both.rename(
-        columns={'subject': 'Description', 'comb-project-subproject': 'Subject', 'time': 'Hours Worked'})
+        columns={'subject': 'Subject', 'comb-project-subproject': 'Description', 'time': 'Hours Worked'})
 
     print(both)
 
