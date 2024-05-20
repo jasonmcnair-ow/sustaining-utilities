@@ -49,7 +49,7 @@ def get_ticket_for_row(row):
     sf_ticket = get_ticket_number_from_subproject(row['subproject'])
     combined = row['project'] + ':' + row['subproject']
 
-    print(f'sf_ticket: {sf_ticket}, combined: {combined}')
+    # print(f'sf_ticket: {sf_ticket}, combined: {combined}')
 
     return TICKET_LOOKUP[sf_ticket] if sf_ticket else TICKET_LOOKUP[combined]
 
@@ -69,11 +69,11 @@ def preprocess_data():
     # print(TICKET_LOOKUP)
     # print(list(df.groupby(['date', 'project', 'subproject'])['subproject']))
 
-    aggregation = pd.concat([df.groupby(['date', 'project', 'subproject'])['subject'].apply(';'.join), df.groupby(['date', 'project', 'subproject']).sum()], axis=1).reset_index()
+    aggregation = pd.concat([df.groupby(['date', 'project', 'subproject', 'effortType'])['subject'].apply(';'.join), df.groupby(['date', 'project', 'subproject', 'effortType']).sum()], axis=1).reset_index()
 
     aggregation['comb-project-subproject'] = aggregation['project'] + ':' + aggregation['subproject'] + ':::' + aggregation['subject']
 
-    print(aggregation)
+    # print(aggregation)
 
 
     # aggregation = pd.concat([df.groupby(['date', 'project', 'subproject'])['subject'].apply(
@@ -105,9 +105,9 @@ def preprocess_data():
     both = both.rename(
         columns={'subject': 'Subject', 'comb-project-subproject': 'Description', 'time': 'Hours Worked'})
 
-    print(both)
-
     both = both.drop(columns=['project', 'subproject', 'key'])
+
+    print(both)
 
     # raise Exception('halt')
     both.to_csv('output.csv', index=False)

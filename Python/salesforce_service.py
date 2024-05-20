@@ -31,7 +31,7 @@ def create_time_entries(records):
         print(record)
         # stripping out and replacing excel formatted date
         date = datetime.strptime(record['date'], '%m/%d/%Y')
-        sf.Time_Entry__c.create({ 'Date__c': date.strftime('%Y-%m-%d'), 'Hours_Worked__c': record['Hours Worked'], 'Description__c': record['Description'], 'Subject__c': record['Subject'], 'Ticket__c': record['ticket'] })
+        sf.Time_Entry__c.create({ 'Date__c': date.strftime('%Y-%m-%d'), 'Hours_Worked__c': record['Hours Worked'], 'Description__c': record['Description'], 'Subject__c': record['Subject'], 'Ticket__c': record['ticket'], 'Effort_Type__c': record['effortType'] })
         
 def get_daterange_clause(field, start: datetime, end: datetime):
     start_datetime = start.strftime("%Y-%m-%dT%H:%M:%SZ")
