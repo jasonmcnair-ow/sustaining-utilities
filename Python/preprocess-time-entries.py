@@ -26,7 +26,7 @@ TICKET_LOOKUP = {
     "OW:PTO": "5002M00000y3usS",
     "OW:Sick": "5002M00001KjTMX",
     "OW:Training": "5002M00001NzmMb",
-    "Pass-Reset": "5002M00001XFO9v",
+    "OW:PassReset": "5002M00001XFO9v",
     "OW:DSS": "5002M00001Ze20U",
     "AHQ:Alloc": "5004100000D8RtMAAV",
     "AHQ:PP": "5004100000eKpyb",
