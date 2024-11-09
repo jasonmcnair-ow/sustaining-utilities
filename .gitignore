@@ -1,2 +1,3 @@
 *.ipynb
 Python/__pycache__/*
+Python/ticketoutputs/**/LT*.txt
