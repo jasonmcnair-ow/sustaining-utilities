@@ -1,6 +1,6 @@
 name: salesforce
 dependencies:
   - numpy
-  - pandas
+  - pandas=1.5.3
   - simple-salesforce
   - notebook
